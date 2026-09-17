@@ -363,6 +363,29 @@ footer{border-top:1px solid var(--line);padding:24px 0;font-size:12.5px;color:va
 .fs-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(43,40,35,.12);border-color:var(--blue)}
 .fs-btn svg{width:20px;height:20px;fill:var(--blue)}
 
+
+/* 开学经历 */
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px}
+@media(max-width:720px){.exp-grid{grid-template-columns:1fr}}
+.exp-card{
+  background:var(--paper-note);border:1px solid var(--line);
+  padding:22px 22px 20px;border-radius:4px;position:relative;
+  transition:transform .25s ease,box-shadow .25s ease;
+  box-shadow:0 4px 14px rgba(43,40,35,.05);
+}
+.exp-card:nth-child(odd){transform:rotate(-.6deg)}
+.exp-card:nth-child(even){transform:rotate(.5deg)}
+.exp-card:hover{transform:rotate(0) translateY(-3px);box-shadow:0 10px 26px rgba(43,40,35,.1)}
+.exp-card .ec-icon{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--paper-warm);display:flex;align-items:center;justify-content:center;
+  font-size:18px;margin-bottom:14px;
+}
+.exp-card .ec-title{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.4}
+.exp-card .ec-body{font-size:14.5px;color:var(--ink-soft);line-height:1.7}
+.exp-card .ec-pin{position:absolute;top:-7px;left:20px;width:12px;height:12px;background:var(--yellow);border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.15)}
+@media(max-width:520px){.exp-card{padding:18px 18px 16px}.exp-card .ec-icon{width:32px;height:32px;font-size:16px}}
+
 </style>
 
 <!-- 腾讯云开发 Web SDK(全量) -->
@@ -558,6 +581,56 @@ document.addEventListener('fullscreenchange',function(){
       </div>
 
         </div>
+  </div>
+</section>
+
+
+<!-- 开学经历 -->
+<section id="experiences">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-kicker">开学以来</div>
+      <h2 class="sec-title">这两周,我也没闲着</h2>
+      <p class="muted" style="margin-bottom:36px">开学到现在,做的几件小事。</p>
+    </div>
+    <div class="exp-grid reveal">
+      <div class="exp-card">
+        <span class="ec-pin"></span>
+        <div class="ec-icon">🤝</div>
+        <div class="ec-title">班级事务,主动承担</div>
+        <div class="ec-body">负责组织班级拔河比赛,从报名到排兵布阵都参与,愿意为班里的事多出力。</div>
+      </div>
+      <div class="exp-card">
+        <span class="ec-pin"></span>
+        <div class="ec-icon">🎯</div>
+        <div class="ec-title">军训认真自觉</div>
+        <div class="ec-body">军训期间没请过假,该练的认真练,该守的规矩自觉遵守,不偷懒不糊弄。</div>
+      </div>
+      <div class="exp-card">
+        <span class="ec-pin"></span>
+        <div class="ec-icon">💬</div>
+        <div class="ec-title">主动请教前辈</div>
+        <div class="ec-body">积极和学长学姐交流,问选课、问专业方向、问社团经验,少走弯路多听建议。</div>
+      </div>
+      <div class="exp-card">
+        <span class="ec-pin"></span>
+        <div class="ec-icon">😊</div>
+        <div class="ec-title">和同学搞好关系</div>
+        <div class="ec-body">主动认识身边的同学,帮忙搭把手,不端着也不装,真诚待人。</div>
+      </div>
+      <div class="exp-card">
+        <span class="ec-pin"></span>
+        <div class="ec-icon">📢</div>
+        <div class="ec-title">加入青协</div>
+        <div class="ec-body">报名加入青年志愿者协会,想做点志愿服务的事情,不只顾自己。</div>
+      </div>
+      <div class="exp-card">
+        <span class="ec-pin"></span>
+        <div class="ec-icon">🏛</div>
+        <div class="ec-title">加入学生会和团委</div>
+        <div class="ec-body">报名学生会和团委,想多参与校园活动的组织,锻炼自己也服务同学。</div>
+      </div>
+    </div>
   </div>
 </section>
 
