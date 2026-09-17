@@ -347,13 +347,47 @@ footer{border-top:1px solid var(--line);padding:24px 0;font-size:12.5px;color:va
   .award-stat{min-width:72px;padding:10px 16px}
   .award-stat .as-num{font-size:24px}
 }
+
+/* 全屏按钮 */
+.fs-btn{
+  position:fixed;bottom:24px;right:24px;z-index:9998;
+  background:var(--paper-note);border:1.5px solid var(--line);
+  width:42px;height:42px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:18px;color:var(--blue);
+  box-shadow:0 4px 14px rgba(43,40,35,.08);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+  opacity:0;animation:fsIn .4s ease 1s forwards;
+}
+@keyframes fsIn{to{opacity:1}}
+.fs-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(43,40,35,.12);border-color:var(--blue)}
+.fs-btn svg{width:20px;height:20px;fill:var(--blue)}
+
 </style>
 
 <!-- 腾讯云开发 Web SDK(全量) -->
-<script src="https://static.cloudbase.net/cloudbase-js-sdk/latest/cloudbase.full.js"></script>
+<script src="https://static.cloudbase.net/cloudbase-js-sdk/latest/cloudbase.full.js">
+// ============ 全屏浏览 ============
+var fsBtn=document.getElementById('fsBtn');
+fsBtn.addEventListener('click',function(){
+  if(!document.fullscreenElement && !document.webkitFullscreenElement){
+    if(document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+    else if(document.documentElement.webkitRequestFullscreen) document.documentElement.webkitRequestFullscreen();
+  }else{
+    if(document.exitFullscreen) document.exitFullscreen();
+    else if(document.webkitExitFullscreen) document.webkitExitFullscreen();
+  }
+});
+document.addEventListener('fullscreenchange',function(){
+  if(document.fullscreenElement) fsBtn.title='退出全屏';
+  else fsBtn.title='全屏浏览';
+});
+
+</script>
 </head>
 <body>
 
+<button class="fs-btn" id="fsBtn" title="全屏浏览" aria-label="全屏浏览"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
 <div class="status-bar" id="statusBar"><span class="dot2"></span>连接中...</div>
 
 <div class="topbar">
@@ -938,6 +972,23 @@ Object.keys(voted).forEach(function(k){
   if(el) el.classList.add('on');
 });
 initCloudBase();
+
+// ============ 全屏浏览 ============
+var fsBtn=document.getElementById('fsBtn');
+fsBtn.addEventListener('click',function(){
+  if(!document.fullscreenElement && !document.webkitFullscreenElement){
+    if(document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+    else if(document.documentElement.webkitRequestFullscreen) document.documentElement.webkitRequestFullscreen();
+  }else{
+    if(document.exitFullscreen) document.exitFullscreen();
+    else if(document.webkitExitFullscreen) document.webkitExitFullscreen();
+  }
+});
+document.addEventListener('fullscreenchange',function(){
+  if(document.fullscreenElement) fsBtn.title='退出全屏';
+  else fsBtn.title='全屏浏览';
+});
+
 </script>
 </body>
 </html>
